@@ -1,14 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "../src/bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
+import TraineesContextProvider from "./contexts/TraineesContext";
+import UserContextProvider from "./contexts/UsersContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TraineesContextProvider>
+      <UserContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UserContextProvider>
+    </TraineesContextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
